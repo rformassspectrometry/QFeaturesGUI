@@ -3,8 +3,9 @@
 ## Authors
 
 - **Léopold Guyot**. Author, maintainer.
+  [](https://orcid.org/0009-0005-2217-3855)
 
-- **Loïc Guille**. Author.
+- **Loïc Guille**. Author. [](https://orcid.org/0000-0002-8387-1092)
 
 ## Citation
 
