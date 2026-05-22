@@ -55,6 +55,11 @@ qfeatures <- readQFeatures(
     colData = sampleTable,
     runCol = "Raw.file"
 )
+qfeatures <- zeroIsNA(qfeatures, i = seq_along(qfeatures))
+
+for (set in names(qfeatures)) {
+    qfeatures[[set]] <- logTransform(qfeatures[[set]], base = 2)
+}
 
 app <- processQFeatures(
     qfeatures,
@@ -62,6 +67,21 @@ app <- processQFeatures(
 )
 
 if (interactive()) {
-    shiny::runApp(app)
+    # This is only needed when launching the app from example().
+    # Regular app usage does not need to modify devAskNewPage().
+    old_ask <- NULL
+    if (grDevices::dev.cur() > 1L) {
+        old_ask <- grDevices::devAskNewPage(FALSE)
+    }
+    old_options <- options(device.ask.default = FALSE)
+    tryCatch(
+        shiny::runApp(app),
+        finally = {
+            if (!is.null(old_ask)) {
+                grDevices::devAskNewPage(old_ask)
+            }
+            options(old_options)
+        }
+    )
 }
 }
