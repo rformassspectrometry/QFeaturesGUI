@@ -44,18 +44,18 @@ Additional applications will be added in future releases.
 if (!require("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
 
-BiocManager::install("UCLouvain-CBIO/QFeaturesGUI")
+BiocManager::install("rformassspectrometry/QFeaturesGUI")
 ```
 
 ## Documentation
 
-[Package website](https://uclouvain-cbio.github.io/QFeaturesGUI/)
+[Package website](https://rformassspectrometry.github.io/QFeaturesGUI/)
 
 [Import
-App](https://uclouvain-cbio.github.io/QFeaturesGUI/articles/importQFeatures.html)
+App](https://rformassspectrometry.github.io/QFeaturesGUI/articles/importQFeatures.html)
 
 [Processing
-App](https://uclouvain-cbio.github.io/QFeaturesGUI/articles/processQFeatures.html)
+App](https://rformassspectrometry.github.io/QFeaturesGUI/articles/processQFeatures.html)
 
 ## Related packages
 
@@ -91,7 +91,7 @@ feature requests, and suggestions for new applications or improvements
 to existing ones.
 
 Issues and enhancement requests can be submitted via the [GitHub issue
-tracker](https://github.com/UCLouvain-CBIO/QFeaturesGUI/issues).
+tracker](https://github.com/rformassspectrometry/QFeaturesGUI/issues).
 
 When reporting bugs, please include a minimal reproducible example when
 possible, along with information about your R session and package
@@ -101,27 +101,27 @@ versions.
 
 ## Application launchers
 
-- [`importQFeatures()`](https://uclouvain-cbio.github.io/QFeaturesGUI/reference/importQFeatures.md)
+- [`importQFeatures()`](https://rformassspectrometry.github.io/QFeaturesGUI/reference/importQFeatures.md)
   : A shiny app to import QFeatures objects.
-- [`processQFeatures()`](https://uclouvain-cbio.github.io/QFeaturesGUI/reference/processQFeatures.md)
+- [`processQFeatures()`](https://rformassspectrometry.github.io/QFeaturesGUI/reference/processQFeatures.md)
   : Launch a Shiny application to process QFeatures objects
 
 ## Data
 
-- [`inputTable`](https://uclouvain-cbio.github.io/QFeaturesGUI/reference/inputTable.md)
+- [`inputTable`](https://rformassspectrometry.github.io/QFeaturesGUI/reference/inputTable.md)
   : Example MaxQuant/SCoPE2 output
-- [`sampleTable`](https://uclouvain-cbio.github.io/QFeaturesGUI/reference/sampleTable.md)
+- [`sampleTable`](https://rformassspectrometry.github.io/QFeaturesGUI/reference/sampleTable.md)
   : Single-cell sample annotation
 
 # Articles
 
 ### Getting started
 
-- [QFeaturesGUI](https://uclouvain-cbio.github.io/QFeaturesGUI/articles/QFeaturesGUI.md):
+- [QFeaturesGUI](https://rformassspectrometry.github.io/QFeaturesGUI/articles/QFeaturesGUI.md):
 
 ### Applications
 
 - [importQFeatures
-  App](https://uclouvain-cbio.github.io/QFeaturesGUI/articles/importQFeatures.md):
+  App](https://rformassspectrometry.github.io/QFeaturesGUI/articles/importQFeatures.md):
 - [processQFeatures
-  App](https://uclouvain-cbio.github.io/QFeaturesGUI/articles/processQFeatures.md):
+  App](https://rformassspectrometry.github.io/QFeaturesGUI/articles/processQFeatures.md):

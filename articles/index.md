@@ -2,11 +2,11 @@
 
 ### Getting started
 
-- [QFeaturesGUI](https://uclouvain-cbio.github.io/QFeaturesGUI/articles/QFeaturesGUI.md):
+- [QFeaturesGUI](https://rformassspectrometry.github.io/QFeaturesGUI/articles/QFeaturesGUI.md):
 
 ### Applications
 
 - [importQFeatures
-  App](https://uclouvain-cbio.github.io/QFeaturesGUI/articles/importQFeatures.md):
+  App](https://rformassspectrometry.github.io/QFeaturesGUI/articles/importQFeatures.md):
 - [processQFeatures
-  App](https://uclouvain-cbio.github.io/QFeaturesGUI/articles/processQFeatures.md):
+  App](https://rformassspectrometry.github.io/QFeaturesGUI/articles/processQFeatures.md):

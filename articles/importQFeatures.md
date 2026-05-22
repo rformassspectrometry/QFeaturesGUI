@@ -89,7 +89,7 @@ will appear below, once again check if everything looks as expected.
 
 Once everything looks fine, you can download the QFeatures object to use
 it with R or continue the analysis using the
-[`processQFeatures()`](https://uclouvain-cbio.github.io/QFeaturesGUI/reference/processQFeatures.md)
+[`processQFeatures()`](https://rformassspectrometry.github.io/QFeaturesGUI/reference/processQFeatures.md)
 function.
 
 To download, click on the `Download` button (`E`); this will download a

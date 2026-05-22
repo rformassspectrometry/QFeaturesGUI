@@ -97,7 +97,7 @@ if (!require("remotes", quietly = TRUE)) {
     install.packages("remotes")
 }
 # Install the package
-remotes::install_github("UCLouvain-CBIO/QFeaturesGUI")
+remotes::install_github("rformassspectrometry/QFeaturesGUI")
 # Load the package
 library(QFeaturesGUI)
 ```
@@ -144,11 +144,11 @@ The use of each application is described in a corresponding vignette:
 
 - **Data import**: `importQFeatures`  
   See the [importQFeatures
-  vignette](https://uclouvain-cbio.github.io/QFeaturesGUI/articles/importQFeatures.md)
+  vignette](https://rformassspectrometry.github.io/QFeaturesGUI/articles/importQFeatures.md)
 
 - **Data processing**: `processQFeatures`  
   See the [processQFeatures
-  vignette](https://uclouvain-cbio.github.io/QFeaturesGUI/articles/processQFeatures.md)
+  vignette](https://rformassspectrometry.github.io/QFeaturesGUI/articles/processQFeatures.md)
 
 Additional applications will be introduced in future releases and
 documented in their own vignettes.

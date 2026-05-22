@@ -44,18 +44,18 @@ Additional applications will be added in future releases.
 if (!require("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
 
-BiocManager::install("UCLouvain-CBIO/QFeaturesGUI")
+BiocManager::install("rformassspectrometry/QFeaturesGUI")
 ```
 
 ## Documentation
 
-[Package website](https://uclouvain-cbio.github.io/QFeaturesGUI/)
+[Package website](https://rformassspectrometry.github.io/QFeaturesGUI/)
 
 [Import
-App](https://uclouvain-cbio.github.io/QFeaturesGUI/articles/importQFeatures.html)
+App](https://rformassspectrometry.github.io/QFeaturesGUI/articles/importQFeatures.html)
 
 [Processing
-App](https://uclouvain-cbio.github.io/QFeaturesGUI/articles/processQFeatures.html)
+App](https://rformassspectrometry.github.io/QFeaturesGUI/articles/processQFeatures.html)
 
 ## Related packages
 
@@ -91,7 +91,7 @@ feature requests, and suggestions for new applications or improvements
 to existing ones.
 
 Issues and enhancement requests can be submitted via the [GitHub issue
-tracker](https://github.com/UCLouvain-CBIO/QFeaturesGUI/issues).
+tracker](https://github.com/rformassspectrometry/QFeaturesGUI/issues).
 
 When reporting bugs, please include a minimal reproducible example when
 possible, along with information about your R session and package
