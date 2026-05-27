@@ -1524,7 +1524,9 @@ summarize_assays_to_df <- function(qfeatures, sample_column, feature_column = NU
         )
 
         matched_indices <- match(assayData$sample, rownames(colData(qfeatures)))
-        assayData$sample_type <- as.vector(colData(qfeatures)[matched_indices, sample_column])
+        colDataAssay <- colData(qfeatures)
+        colDataAssay$Rownames <- rownames(colData(qfeatures))
+        assayData$sample_type <- as.vector(colDataAssay[matched_indices, sample_column])
 
         if (!is.null(feature_column)) {
             matched_indices <- match(assayData$PSM, rownames(rowData(qfeatures[[assayName]])))

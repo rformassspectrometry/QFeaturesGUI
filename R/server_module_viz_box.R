@@ -36,7 +36,7 @@ server_module_viz_box <- function(id, assays_to_process) {
             req(assays_to_process())
             updateSelectInput(session,
                 "sample_type_column",
-                choices = colnames(colData(assays_to_process()))
+                choices = c(colnames(colData(assays_to_process())),"Rownames")
             )
         })
 
