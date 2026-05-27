@@ -42,6 +42,7 @@ server_module_filtering_box <- function(id, assays_to_process, type, state) {
         combined_samples_annotations <- reactive({
             req(assays_to_process())
             sample_metadata <- as.data.frame(colData(assays_to_process()))
+            sample_metadata[is.na(sample_metadata)] <- "NA"
             sample_metadata[[rowname_selector_key]] <- rownames(colData(assays_to_process()))
             sample_metadata
         })
@@ -49,6 +50,7 @@ server_module_filtering_box <- function(id, assays_to_process, type, state) {
         combined_features_annotations <- reactive({
             req(assays_to_process())
             feature_metadata <- as.data.frame(rbindRowData(assays_to_process(), seq_along(assays_to_process())))
+            feature_metadata[is.na(feature_metadata)] <- "NA"
             row_ids <- NULL
             if ("rowname" %in% colnames(feature_metadata)) {
                 row_ids <- feature_metadata[["rowname"]]
@@ -352,6 +354,7 @@ server_module_annotation_plot <- function(id,
         combined_samples_annotations <- reactive({
             req(assays_to_process())
             sample_metadata <- as.data.frame(colData(assays_to_process()))
+            sample_metadata[is.na(sample_metadata)] <- "NA"
             sample_metadata[[rowname_selector_key]] <- rownames(colData(assays_to_process()))
             sample_metadata
         })
@@ -359,6 +362,7 @@ server_module_annotation_plot <- function(id,
         combined_features_annotations <- reactive({
             req(assays_to_process())
             feature_metadata <- as.data.frame(rbindRowData(assays_to_process(), seq_along(assays_to_process())))
+            feature_metadata[is.na(feature_metadata)] <- "NA"
             row_ids <- NULL
             if ("rowname" %in% colnames(feature_metadata)) {
                 row_ids <- feature_metadata[["rowname"]]
