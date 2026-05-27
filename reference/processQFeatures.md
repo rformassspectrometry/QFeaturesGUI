@@ -56,6 +56,9 @@ can then be applied to the selected assays.
 ## Examples
 
 ``` r
+
+# the example should be launched with `ask = FALSE`
+
 library(QFeatures)
 #> Loading required package: MultiAssayExperiment
 #> Loading required package: SummarizedExperiment
