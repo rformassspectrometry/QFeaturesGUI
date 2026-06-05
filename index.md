@@ -69,6 +69,9 @@ analysis:
 - [`scp`](https://bioconductor.org/packages/release/bioc/html/scp.html)  
   Extension of `QFeatures` for single-cell proteomics data analysis.
 
+- [`msqrob2`](https://www.bioconductor.org/packages/release/bioc/html/msqrob2.html)
+  Robust statistical inference for quantitative LC-MS proteomics
+
 - [`RforMassSpectrometry`](https://www.rformassspectrometry.org/)  
   A collection of R packages for the analysis and interpretation of mass
   spectrometry data.
