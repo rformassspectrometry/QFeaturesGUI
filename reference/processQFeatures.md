@@ -4,17 +4,20 @@
 allows users to visually configure and apply pre-processing workflows to
 a QFeatures object.
 
-The input `qfeatures` can be provided either as an in-memory QFeatures
-object or as a path to an `.rds` file containing one.
+The input `qfeatures` can be provided as an in-memory QFeatures object,
+as a path to an `.rds` file containing one, or omitted. If omitted, the
+application prompts the user to upload a QFeatures object from an `.rds`
+file.
 
 ## Usage
 
 ``` r
 processQFeatures(
-  qfeatures,
-  initialSets = seq_along(qfeatures),
+  qfeatures = NULL,
+  initialSets = NULL,
   prefilledSteps = c("sampleFiltering", "featureFiltering", "missingValuesFeatures",
-    "missingValuesSamples", "normalisation", "aggregation", "join", "aggregation")
+    "missingValuesSamples", "normalisation", "aggregation", "join", "aggregation"),
+  maxSize = 100
 )
 ```
 
@@ -22,18 +25,21 @@ processQFeatures(
 
 - qfeatures:
 
-  A
+  Optional
   [QFeatures](https://rformassspectrometry.github.io/QFeatures/reference/QFeatures-class.html)
   object to be processed, or a character string specifying the path to a
   `.rds` file containing a
   [QFeatures](https://rformassspectrometry.github.io/QFeatures/reference/QFeatures-class.html)
-  object.
+  object. If omitted, the app starts without processing steps and
+  displays a startup modal.
 
 - initialSets:
 
   An integer, logical, or character vector specifying which assays
-  (feature sets) should be used as the starting point for processing.
-  Defaults to all assays in `qfeatures`.
+  (feature sets) should be used as the starting point for processing. If
+  `NULL` and `qfeatures` is provided, all assays in `qfeatures` are
+  used. If `qfeatures` is omitted, the user chooses the initial sets
+  after uploading the `.rds` file.
 
 - prefilledSteps:
 
@@ -41,6 +47,12 @@ processQFeatures(
   when the application launches. Steps must be provided using their
   internal identifiers (e.g. `"sampleFiltering"`, `"featureFiltering"`,
   `"normalisation"`).
+
+- maxSize:
+
+  An integer that changes the `shiny.maxRequestSize` value, in MB. This
+  controls the maximum upload size for the startup `.rds` file upload
+  modal.
 
 ## Value
 
@@ -155,7 +167,8 @@ qfeatures <- readQFeatures(
 
 app <- processQFeatures(
     qfeatures,
-    initialSets = seq_along(qfeatures)
+    initialSets = seq_along(qfeatures),
+    maxSize = 100
 )
 
 if (interactive()) {
