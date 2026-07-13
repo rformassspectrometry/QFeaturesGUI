@@ -63,7 +63,7 @@ Guyot</h4>
                                     <h4 data-toc-skip class="author">Loïc
 Guille</h4>
                         
-            <h4 data-toc-skip class="date">1 July 2026</h4>
+            <h4 data-toc-skip class="date">13 July 2026</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/rformassspectrometry/QFeaturesGUI/vignettes/processQFeatures.Rmd" class="external-link"><code>vignettes/processQFeatures.Rmd</code></a></small>
       <div class="d-none name"><code>processQFeatures.Rmd</code></div>
@@ -71,14 +71,21 @@ Guille</h4>
 
     
     
+<p>This app can be used once the data from
+<code><a href="../reference/importQFeatures.html">importQFeatures()</a></code> have been downloaded. In order to do
+that, unzip the folder downloaded, and load the RDS that contain the
+QFeatures object in your R environment or pass directly the path as an
+argument when using <code><a href="../reference/processQFeatures.html">processQFeatures()</a></code>. You can also
+directly start the application <code><a href="../reference/processQFeatures.html">processQFeatures()</a></code> and load
+the RDS into the application.</p>
 <div class="section level2">
 <h2 id="start-the-app">Start the app<a class="anchor" aria-label="anchor" href="#start-the-app"></a>
 </h2>
 <p>Parameters of the Shiny application:</p>
 <ul>
-<li><p><code>qfeatures</code>: a QFeatures object. This can be either a
-path to an RDS file or a QFeatures object already loaded in your R
-session.</p></li>
+<li><p><code>qfeatures</code> (optional): a QFeatures object. This can
+be either a path to an RDS file or a QFeatures object already loaded in
+your R session.</p></li>
 <li><p><code>prefilledSteps</code> (optional): defines the different
 steps of the workflow used to analyse the QFeatures object. Accepted
 values are <code>sampleFiltering</code>, <code>featureFiltering</code>,
@@ -95,6 +102,10 @@ set as the default value is <code>sampleFiltering</code>,
 of the QFeatures object. The default is
 <code>seq_along(qfeatures)</code>.</p></li>
 </ul>
+<p>The app can be started without any parameter, in that case the app
+will start by asking you to load an RDS containing a QFeatures object.
+Once loaded you can adjust the sets needed for the analysis of the
+object.</p>
 </div>
 <div class="section level2">
 <h2 id="workflow-configuration">Workflow configuration<a class="anchor" aria-label="anchor" href="#workflow-configuration"></a>
@@ -382,7 +393,7 @@ version.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
     </footer>

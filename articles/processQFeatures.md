@@ -1,11 +1,21 @@
 # processQFeatures App
 
+This app can be used once the data from
+[`importQFeatures()`](https://rformassspectrometry.github.io/QFeaturesGUI/reference/importQFeatures.md)
+have been downloaded. In order to do that, unzip the folder downloaded,
+and load the RDS that contain the QFeatures object in your R environment
+or pass directly the path as an argument when using
+[`processQFeatures()`](https://rformassspectrometry.github.io/QFeaturesGUI/reference/processQFeatures.md).
+You can also directly start the application
+[`processQFeatures()`](https://rformassspectrometry.github.io/QFeaturesGUI/reference/processQFeatures.md)
+and load the RDS into the application.
+
 ## Start the app
 
 Parameters of the Shiny application:
 
-- `qfeatures`: a QFeatures object. This can be either a path to an RDS
-  file or a QFeatures object already loaded in your R session.
+- `qfeatures` (optional): a QFeatures object. This can be either a path
+  to an RDS file or a QFeatures object already loaded in your R session.
 
 - `prefilledSteps` (optional): defines the different steps of the
   workflow used to analyse the QFeatures object. Accepted values are
@@ -18,6 +28,10 @@ Parameters of the Shiny application:
 
 - `initialSets` (optional): sets to use for the analysis of the
   QFeatures object. The default is `seq_along(qfeatures)`.
+
+The app can be started without any parameter, in that case the app will
+start by asking you to load an RDS containing a QFeatures object. Once
+loaded you can adjust the sets needed for the analysis of the object.
 
 ## Workflow configuration
 

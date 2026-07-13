@@ -100,4 +100,5 @@ lines used to generate the QFeatures object, and
 and versions used to generate the QFeatures object. Choose the
 destination folder and the folder name, then click on save. Your
 QFeatures object is now available on your computer, it can be used in
-combination with the scp package to continue the data processing.
+combination with the QFeatures and scp package to continue the data
+processing.
