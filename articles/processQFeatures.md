@@ -37,6 +37,8 @@ Parameters of the Shiny application:
 The app can be started without any parameter, in that case the app will
 start by asking you to load an RDS containing a QFeatures object. Once
 loaded you can adjust the sets needed for the analysis of the object.
+Note that you can also use the “Use demo QFeatures” button to use an
+example QFeatures.
 
 ## Workflow configuration
 
