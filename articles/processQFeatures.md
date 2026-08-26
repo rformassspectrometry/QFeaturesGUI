@@ -334,7 +334,7 @@ sessionInfo()
 #> [17] magrittr_2.0.5              compiler_4.6.1             
 #> [19] rlang_1.3.0                 sass_0.4.10                
 #> [21] tools_4.6.1                 igraph_2.3.3               
-#> [23] yaml_2.3.12                 data.table_1.18.4          
+#> [23] yaml_2.3.12                 data.table_1.18.6.1        
 #> [25] knitr_1.51                  S4Arrays_1.12.0            
 #> [27] htmlwidgets_1.6.4           DelayedArray_0.38.2        
 #> [29] plyr_1.8.9                  RColorBrewer_1.1-3         
@@ -354,13 +354,13 @@ sessionInfo()
 #> [57] matrixStats_1.5.0           vctrs_0.7.3                
 #> [59] Matrix_1.7-5                jsonlite_2.0.0             
 #> [61] bookdown_0.47               IRanges_2.46.0             
-#> [63] S4Vectors_0.50.1            clue_0.3-68                
+#> [63] S4Vectors_0.50.2            clue_0.3-68                
 #> [65] systemfonts_1.3.2           fontawesome_0.5.3          
 #> [67] plotly_4.12.1               tidyr_1.3.2                
 #> [69] jquerylib_0.1.4             glue_1.8.1                 
 #> [71] pkgdown_2.2.1               QFeatures_1.22.0           
 #> [73] shinyalert_3.1.0            DT_0.34.0                  
-#> [75] stringi_1.8.7               gtable_0.3.6               
+#> [75] stringi_1.8.9               gtable_0.3.6               
 #> [77] later_1.4.8                 GenomicRanges_1.64.0       
 #> [79] shinydashboard_0.7.3        tibble_3.3.1               
 #> [81] pillar_1.11.1               htmltools_0.5.9            
@@ -368,7 +368,7 @@ sessionInfo()
 #> [85] textshaping_1.0.5           evaluate_1.0.5             
 #> [87] shiny_1.14.0                lattice_0.22-9             
 #> [89] Biobase_2.72.0              shinyFeedback_0.4.0        
-#> [91] httpuv_1.6.17               bslib_0.11.0               
+#> [91] httpuv_1.6.17               bslib_0.12.0               
 #> [93] Rcpp_1.1.2                  SparseArray_1.12.2         
 #> [95] xfun_0.60                   MsCoreUtils_1.24.0         
 #> [97] fs_2.1.0                    MatrixGenerics_1.24.0      
