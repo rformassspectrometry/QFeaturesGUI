@@ -307,5 +307,5 @@ data is stored as a `data.frame`.
 
 `readSCP()` from the `scp` package for an example on how `mqScpData` is
 parsed into a
-[QFeatures::QFeatures](https://rformassspectrometry.github.io/QFeatures/reference/QFeatures-class.html)
+[QFeatures](https://rformassspectrometry.github.io/QFeatures/reference/QFeatures-class.html)
 object.
