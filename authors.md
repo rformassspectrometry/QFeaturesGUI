@@ -19,12 +19,12 @@ Source:
 
 Guyot L, Guille L (2026). *QFeaturesGUI: A suite of shiny apps to use
 the main functionalities of the QFeatures package*. R package version
-0.99.0, <https://rformassspectrometry.github.io/QFeaturesGUI/>.
+0.99.1, <https://rformassspectrometry.github.io/QFeaturesGUI/>.
 
     @Manual{,
       title = {QFeaturesGUI: A suite of shiny apps to use the main functionalities of the QFeatures package},
       author = {Léopold Guyot and Loïc Guille},
       year = {2026},
-      note = {R package version 0.99.0},
+      note = {R package version 0.99.1},
       url = {https://rformassspectrometry.github.io/QFeaturesGUI/},
     }
