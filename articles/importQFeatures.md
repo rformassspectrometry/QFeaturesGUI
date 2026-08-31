@@ -167,7 +167,7 @@ sessionInfo()
 #> [55] BiocManager_1.30.27         XVector_0.52.0             
 #> [57] matrixStats_1.5.0           vctrs_0.7.3                
 #> [59] Matrix_1.7-5                jsonlite_2.0.0             
-#> [61] bookdown_0.47               IRanges_2.46.0             
+#> [61] bookdown_0.48               IRanges_2.46.0             
 #> [63] S4Vectors_0.50.2            clue_0.3-68                
 #> [65] systemfonts_1.3.2           fontawesome_0.5.3          
 #> [67] plotly_4.12.1               tidyr_1.3.2                
