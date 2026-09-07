@@ -197,10 +197,10 @@ test_that("{shinytest2} recording: processQFeatures", {
         removeEmptyCols = TRUE,
         verbose = FALSE
     )
-    appObject <- QFeaturesGUI::processQFeatures(qf, prefilledSteps = c(
-        "zeroToNA", "logTransform", "sampleFiltering", "featureFiltering", "missingValuesFeatures",
-        "missingValuesSamples", "normalisation", "aggregation", "join", "aggregation"
-    ))
+    expect_warning(appObject <- QFeaturesGUI::processQFeatures(qf, prefilledSteps = c(
+      "zeroToNA", "logTransform", "sampleFiltering", "featureFiltering", "missingValuesFeatures",
+      "missingValuesSamples", "normalisation", "aggregation", "join", "aggregation"
+    )), "No initialSets parameter")
     app <- AppDriver$new(appObject,
         name = "processQFeatures", height = 1619, width = 1080
     )
@@ -311,12 +311,12 @@ test_that("{shinytest2}: zeroToNA exports the expected QFeatures object", {
     testthat::skip_on_cran()
 
     qf <- make_process_test_qfeatures()
-    app <- AppDriver$new(
-        QFeaturesGUI::processQFeatures(qf, prefilledSteps = "zeroToNA"),
-        name = "processQFeatures_zeroToNA",
-        height = 900,
-        width = 1200
-    )
+    expect_warning(app <- AppDriver$new(
+      QFeaturesGUI::processQFeatures(qf, prefilledSteps = "zeroToNA"),
+      name = "processQFeatures_zeroToNA",
+      height = 900,
+      width = 1200
+    ), "No initialSets parameter")
     on.exit(app$stop(), add = TRUE)
 
     wait_for_process_step(app, 1)
@@ -334,12 +334,12 @@ test_that("{shinytest2}: logTransform exports the expected QFeatures object", {
     testthat::skip_on_cran()
 
     qf <- make_process_test_qfeatures()
-    app <- AppDriver$new(
-        QFeaturesGUI::processQFeatures(qf, prefilledSteps = "logTransform"),
-        name = "processQFeatures_logTransform",
-        height = 900,
-        width = 1200
-    )
+    expect_warning(app <- AppDriver$new(
+      QFeaturesGUI::processQFeatures(qf, prefilledSteps = "logTransform"),
+      name = "processQFeatures_logTransform",
+      height = 900,
+      width = 1200
+    ), "No initialSets parameter")
     on.exit(app$stop(), add = TRUE)
 
     wait_for_process_step(app, 1)
@@ -424,12 +424,12 @@ test_that("{shinytest2}: normalisation exports the expected QFeatures object", {
     testthat::skip_on_cran()
 
     qf <- make_process_test_qfeatures()
-    app <- AppDriver$new(
-        QFeaturesGUI::processQFeatures(qf, prefilledSteps = "normalisation"),
-        name = "processQFeatures_normalisation",
-        height = 900,
-        width = 1200
-    )
+    expect_warning(app <- AppDriver$new(
+      QFeaturesGUI::processQFeatures(qf, prefilledSteps = "normalisation"),
+      name = "processQFeatures_normalisation",
+      height = 900,
+      width = 1200
+    ), "No initialSets parameter")
     on.exit(app$stop(), add = TRUE)
 
     wait_for_process_step(app, 1)
@@ -455,12 +455,12 @@ test_that("{shinytest2}: aggregation exports the expected QFeatures object", {
     testthat::skip_on_cran()
 
     qf <- make_process_test_qfeatures()
-    app <- AppDriver$new(
-        QFeaturesGUI::processQFeatures(qf, prefilledSteps = "aggregation"),
-        name = "processQFeatures_aggregation",
-        height = 900,
-        width = 1200
-    )
+    expect_warning(app <- AppDriver$new(
+      QFeaturesGUI::processQFeatures(qf, prefilledSteps = "aggregation"),
+      name = "processQFeatures_aggregation",
+      height = 900,
+      width = 1200
+    ), "No initialSets parameter")
     on.exit(app$stop(), add = TRUE)
 
     wait_for_process_step(app, 1)

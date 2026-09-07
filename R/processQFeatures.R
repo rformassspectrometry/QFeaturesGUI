@@ -15,11 +15,13 @@
 #'   containing a \linkS4class{QFeatures} object. If omitted, the app starts
 #'   without processing steps and displays a startup modal.
 #'
-#' @param initialSets An integer, logical, or character vector specifying
-#'   which assays (feature sets) should be used as the starting point for
-#'   processing. If \code{NULL} and \code{qfeatures} is provided, all assays in
-#'   \code{qfeatures} are used. If \code{qfeatures} is omitted, the user chooses
-#'   the initial sets after uploading the \code{.rds} file.
+#' @param initialSets An integer, logical, or character vector
+#'     specifying which sets should be used as the starting point for
+#'     processing. If \code{NULL} and \code{qfeatures} is provided,
+#'     all assays in \code{qfeatures} are used. If \code{qfeatures} is
+#'     omitted, the user chooses the initial sets after uploading the
+#'     \code{.rds} file. Note that all of the sets in initialSets should
+#'     belong to the same modality (PSMs, peptide, proteins, ...).
 #'
 #' @param prefilledSteps A character vector specifying the initial workflow
 #'   steps to display when the application launches. Steps must be provided
@@ -79,6 +81,11 @@ processQFeatures <- function(
 
         ## Normalize initial assay selection
         if (is.null(initialSets)) {
+            warning(
+              "No initialSets parameter provided,",
+              " initial sets for the processing defined",
+              " as all sets present in the QFeatures."
+            )
             initialSets <- seq_along(qfeatures)
         }
         initial_sets <- normalise_initial_sets(qfeatures, initialSets)
