@@ -90,7 +90,8 @@ interface_module_filtering_tab <- function(id, type = c("samples", "features")) 
                 width = "100%",
                 class = "load-button"
             ),
-            tooltipText = paste("Write the processed sets to the QFeatures object.",
+            tooltipText = paste(
+                "Write the processed sets to the QFeatures object.",
                 "This is needed to proceed to the next steps."
             ),
             placement = "top"

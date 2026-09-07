@@ -30,23 +30,24 @@ interface_module_qc_metrics <- function(id, type) {
                     choices = NULL,
                     label = "Select the set for dimension reduction"
                 ),
-                column(width = 6,
-                       selectInput(
-                         inputId = NS(id,"x_axis"),
-                         label = "Component on X axis",
-                         choices = c("PC1", "PC2", "PC3", "PC4", "PC5", "PC6"),
-                         selected = "PC1"
-                       ),
+                column(
+                    width = 6,
+                    selectInput(
+                        inputId = NS(id, "x_axis"),
+                        label = "Component on X axis",
+                        choices = c("PC1", "PC2", "PC3", "PC4", "PC5", "PC6"),
+                        selected = "PC1"
+                    ),
                 ),
-                column(width = 6,
-                       selectInput(
-                         inputId = NS(id,"y_axis"),
-                         label = "Component on Y axis",
-                         choices = c("PC1", "PC2", "PC3", "PC4", "PC5", "PC6"),
-                         selected = "PC2"
-                       ),
+                column(
+                    width = 6,
+                    selectInput(
+                        inputId = NS(id, "y_axis"),
+                        label = "Component on Y axis",
+                        choices = c("PC1", "PC2", "PC3", "PC4", "PC5", "PC6"),
+                        selected = "PC2"
+                    ),
                 ),
-                
                 selectInput(
                     inputId = NS(id, "pca_color"),
                     label = "Color by",
