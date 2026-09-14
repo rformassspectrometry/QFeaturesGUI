@@ -1,15 +1,16 @@
-#' Summary tab for the interface module
+#' QFeatures summary interface module
 #'
 #' @param id the id of the module
-#' @return a box with the summary tab
+#' @param ... Additional UI elements to append to the summary box.
+#' @return a box with the QFeatures summary
 #'
-#' @rdname INTERNAL_interface_module_summary_tab
+#' @rdname INTERNAL_interface_module_summary
 #' @keywords internal
 #' @importFrom shinydashboardPlus box
 #' @importFrom DT dataTableOutput
 #' @importFrom shiny NS
 #' @importFrom plotly plotlyOutput
-interface_module_summary_tab <- function(id) {
+interface_module_summary <- function(id, ...) {
     box(
         title = "QFeatures Summary",
         status = "primary",
@@ -43,11 +44,6 @@ interface_module_summary_tab <- function(id) {
             collapsible = TRUE,
             interface_module_pca_box(NS(id, "summary_pca"))
         ),
-        downloadButton(
-            outputId = NS(id, "download_qfeatures"),
-            "Download QFeatures",
-            class = "load-button",
-            style = "width: 100%;"
-        )
+        ...
     )
 }

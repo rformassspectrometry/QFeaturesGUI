@@ -389,12 +389,16 @@ with_task_loader <- function(caption = NULL, expr) {
 #' Will convert a qfeatures object to a summary data.frame object
 #'
 #' @param qfeatures a qfeatures object
+#' @param assay_labels A function taking assay names and returning display
+#'   labels of the same length. Defaults to [identity()].
 #'
 #' @return a data.frame object
 #' @rdname INTERNAL_qfeatures_to_df
 #' @keywords internal
 #'
-qfeatures_to_df <- function(qfeatures) {
+qfeatures_to_df <- function(qfeatures, assay_labels = identity) {
+    assay_names <- assay_labels(names(qfeatures))
+    stopifnot(length(assay_names) == length(qfeatures))
     df <- data.frame(
         "Name" = rep.int(0, length(qfeatures)),
         "Class" = rep.int(0, length(qfeatures)),
@@ -404,7 +408,7 @@ qfeatures_to_df <- function(qfeatures) {
         "nSamplesMetadata" = rep.int(0, length(qfeatures))
     )
     for (i in seq_along(qfeatures)) {
-        df[i, "Name"] <- remove_QFeaturesGUI(names(qfeatures)[[i]])
+        df[i, "Name"] <- assay_names[[i]]
         df[i, "Class"] <- class(qfeatures[[i]])[[1]]
         df[i, "nFeatures"] <- nrow(qfeatures[[i]])[[1]]
         df[i, "nSamples"] <- ncol(qfeatures[[i]])[[1]]
