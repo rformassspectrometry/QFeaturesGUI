@@ -19,14 +19,9 @@ server_module_summary_tab <- function(id) {
             lapply(global_rv$step_rvs, function(rv) rv())
         })
 
-        observe({
+        pca_assays <- reactive({
             any_step_saved()
-            choices <- names(.qf$qfeatures)
-            req(choices)
-            updateSelectInput(session,
-                "selected_set",
-                choices = choices
-            )
+            .qf$qfeatures
         })
         qfeatures_df <- reactive({
             any_step_saved()
@@ -51,10 +46,6 @@ server_module_summary_tab <- function(id) {
             )
         })
 
-        single_set <- reactive({
-            req(input$selected_set)
-            suppressWarnings(getWithColData(.qf$qfeatures, input$selected_set))
-        })
         output$assay_table <- DT::renderDataTable({
             any_step_saved()
             if (!is.null(input$qfeatures_dt_rows_selected)) {
@@ -83,37 +74,9 @@ server_module_summary_tab <- function(id) {
                 )
             }
         })
-        annotation_names <- reactive({
-            req(single_set())
-            req(input$pca_type)
-            if (input$pca_type == "features") {
-                c("NULL", colnames(rowData(single_set())))
-            } else {
-                c("NULL", colnames(colData(single_set())))
-            }
-        })
-
-        observe({
-            req(single_set())
-            req(annotation_names())
-            stopifnot(is(single_set(), "SummarizedExperiment"))
-            updateSelectInput(session,
-                "pca_color",
-                choices = annotation_names(),
-                selected = "NULL"
-            )
-        })
         server_module_pca_box(
             id = "summary_pca",
-            single_assay = single_set,
-            pca_type = reactive(input$pca_type),
-            scale = reactive(input$scale),
-            center = reactive(input$center),
-            color = reactive(input$pca_color),
-            show_legend = reactive(input$show_legend),
-            color_width = reactive(input$color_width),
-            x_component = reactive(input$x_axis),
-            y_component = reactive(input$y_axis)
+            assays_to_process = pca_assays
         )
         output$download_qfeatures <- downloadHandler(
             filename = function() {
