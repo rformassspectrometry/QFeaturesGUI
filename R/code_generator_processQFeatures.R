@@ -10,7 +10,7 @@
 codeGeneratorInitialization <- function(qf, step_number) {
     vec <- names(qf)
     if (step_number == 1) {
-        initial_setNames <- vec[grep(pattern = paste0("QFeaturesGUI#0"), vec)]
+        initial_setNames <- vec[grep(pattern = "QFeaturesGUI#0", vec)]
         initial_setNames <- remove_QFeaturesGUI(initial_setNames)
         step_setNames <- vec[grep(pattern = paste0("QFeaturesGUI#", step_number), vec)]
         step_setNames <- remove_QFeaturesGUI(step_setNames)
