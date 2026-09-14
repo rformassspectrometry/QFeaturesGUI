@@ -11,7 +11,7 @@
 #' @keywords internal
 #'
 #' @importFrom QFeatures QFeatures
-#' @importFrom shiny observeEvent
+#' @importFrom shiny observeEvent observe reactiveVal downloadHandler
 #' @importFrom shinydashboard updateTabItems
 #' @importFrom shinyalert shinyalert
 #'
@@ -39,7 +39,73 @@ build_process_server <- function(qfeatures, initial_sets, initial_steps, has_qfe
         server_sidebar(input, output, session)
         server_module_workflow_config("workflow_config")
         server_dynamic_workflow(input, output, session)
-        server_module_summary_tab("summary_tab")
+        # Adapt the process app's non-reactive store and workflow notifications
+        # to the reactive QFeatures input expected by the summary module.
+        summary_qfeatures <- reactiveVal(.qf$qfeatures)
+        observe({
+            lapply(global_rv$step_rvs, function(rv) rv())
+            summary_qfeatures(.qf$qfeatures)
+        })
+        server_module_summary(
+            "summary_tab",
+            qfeatures = summary_qfeatures,
+            assay_labels = remove_QFeaturesGUI
+        )
+
+        output[["summary_tab-download_qfeatures"]] <- downloadHandler(
+            filename = function() {
+                "processQFeatures_files.zip"
+            },
+            content = function(file) {
+                with_task_loader(
+                    caption = "Preparing download, can be quite time consuming",
+                    expr = {
+                        tmpdir <- tempdir()
+                        final_qfeatures <- .qf$qfeatures
+                        names(final_qfeatures) <- remove_QFeaturesGUI(names(final_qfeatures))
+                        rds_file <- file.path(tmpdir, "processQFeatures_QFeatures_object.rds")
+                        saveRDS(final_qfeatures, rds_file)
+                        rmd_file <- file.path(tmpdir, "sessionInfo.Rmd")
+                        SI_file <- file.path(tmpdir, "processQFeatures_sessionInfo.html")
+                        r_file <- file.path(tmpdir, "processQFeatures_script.R")
+                        writeLines(
+                            c(
+                                "---",
+                                "title : \"SessionInfo\"",
+                                "output: html_document",
+                                "---",
+                                "",
+                                "```{r}",
+                                "sessionInfo()",
+                                "```"
+                            ),
+                            rmd_file
+                        )
+                        rmarkdown::render(
+                            rmd_file,
+                            output_file = SI_file,
+                            quiet = TRUE
+                        )
+                        writeLines(
+                            c(
+                                "# Reproducible R script",
+                                paste0("# Generated on: ", Sys.time()),
+                                "",
+                                "####################################\n######### Package loading ##########\n####################################\nlibrary(QFeatures)\nlibrary(MsCoreUtils)\n",
+                                "####################################\n########## Load dataset ############\n####################################\n## Replace 'myDataset' with the path towards your initial Qfeatures .rds file.\n## Or directly assign your initial QFeatures object to qf.\nqf <- readRDS('myDataset') \n",
+                                unlist(global_rv$code_lines)
+                            ),
+                            r_file
+                        )
+                        utils::zip(
+                            zipfile = file,
+                            files = c(rds_file, SI_file, r_file),
+                            flags = "-j"
+                        )
+                    }
+                )
+            }
+        )
 
         uploaded_qfeatures <- shiny::reactiveVal(NULL)
         upload_message <- shiny::reactiveVal(NULL)
@@ -172,6 +238,7 @@ build_process_server <- function(qfeatures, initial_sets, initial_steps, has_qfe
             }
 
             .qf$qfeatures <- format_qfeatures(uploaded, initial_idx)
+            summary_qfeatures(.qf$qfeatures)
             global_rv$workflow_config <- workflow_steps
             global_rv$code_lines <- list()
             shiny::removeModal()

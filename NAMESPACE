@@ -178,7 +178,8 @@ importFrom(shinyjs,
 )
 importFrom(stats,
   as.formula,
-  na.exclude
+  na.exclude,
+  setNames
 )
 importFrom(tibble,rownames_to_column)
 importFrom(tidyr,pivot_longer)

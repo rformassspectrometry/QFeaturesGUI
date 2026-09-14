@@ -449,7 +449,7 @@ nipalsWrapper <- function(sce, center, scale, transpose = FALSE) {
     mat <- assay(sce)
     dimMat <- dim(mat)
     mat <- mat[rowSums(is.finite(mat)) > 2, colSums(is.finite(mat)) > 2]
-    if (!identical(dim(mat), dimMat)){
+    if (!identical(dim(mat), dimMat)) {
         warning("Some variable(s) with less than 3 observations were removed")
     }
 
@@ -531,12 +531,12 @@ pca_plotly <- function(df, pca_result, color_name, show_legend, x_component, y_c
         layout(
             xaxis = list(title = paste(
                 x_component,
-                round(pca_result$R2[as.integer(strsplit(x_component,"PC")[[1]][2])] * 100, 2),
+                round(pca_result$R2[as.integer(strsplit(x_component, "PC")[[1]][2])] * 100, 2),
                 "% of the variance"
             )),
             yaxis = list(title = paste(
                 y_component,
-                round(pca_result$R2[as.integer(strsplit(y_component,"PC")[[1]][2])] * 100, 2),
+                round(pca_result$R2[as.integer(strsplit(y_component, "PC")[[1]][2])] * 100, 2),
                 "% of the variance"
             )),
             showlegend = show_legend,
@@ -770,10 +770,11 @@ available_imputation_methods <- function() {
 assert_imputation_method_available <- function(method) {
     specs <- imputation_method_specs()
     if (!(method %in% names(specs))) {
-        stop("Unknown imputation method: ", method, 
+        stop("Unknown imputation method: ", method,
             ". Use one of the available methods: ",
             names(specs),
-            call. = FALSE)
+            call. = FALSE
+        )
     }
 
     required_package <- specs[[method]]$package
@@ -1357,8 +1358,10 @@ annotation_cols <- function(x, what) {
 #' @importFrom MsCoreUtils robustSummary medianPolish
 #' @importFrom waiter Waiter spin_fading_circles
 #'
-aggregation_qfeatures <- function(qfeatures, method,
-    fcol) {
+aggregation_qfeatures <- function(
+      qfeatures, method,
+      fcol
+) {
     n <- length(qfeatures)
     caption <- if (n > 0L) {
         paste0("Aggregation of 1/", n, " sets")

@@ -8,7 +8,7 @@
 #' @rdname INTERNAL_server_module_filtering_box
 #' @keywords internal
 #'
-#' @importFrom shiny moduleServer updateSelectInput reactive observe is.reactive req updateTextInput updateSelectInput selectizeInput numericInput updateSelectizeInput
+#' @importFrom shiny moduleServer updateSelectInput reactive observe observeEvent is.reactive req updateTextInput updateSelectInput selectizeInput numericInput updateSelectizeInput
 #' @importFrom SummarizedExperiment colData rowData
 #' @importFrom shinyFeedback feedbackDanger
 #' @importFrom QFeatures filterFeatures
@@ -131,7 +131,7 @@ server_module_filtering_box <- function(id, assays_to_process, type, state) {
 
         observe({
             req(operator_choices())
-            selected_operator <- input$filter_operator
+            selected_operator <- shiny::isolate(input$filter_operator)
             if (!(selected_operator %in% unname(operator_choices()))) {
                 selected_operator <- unname(operator_choices())[[1]]
             }
@@ -256,13 +256,18 @@ server_module_filtering_box <- function(id, assays_to_process, type, state) {
             )
         })
 
-        observe({
+        # Input events arrive after the browser has bound the value widget.
+        observeEvent(input[[paste0("filter_ui_", type)]], {
+            req(input$filter_operator)
+            if (is_missingness_filter_operator(input$filter_operator)) {
+                return()
+            }
             feedbackDanger(
                 inputId = paste0("filter_ui_", type),
                 show = is_empty_categorical_multiselect(),
                 text = "Select at least one value for this condition."
             )
-        })
+        }, ignoreNULL = TRUE)
 
         server_module_annotation_plot(
             "annotation_plot",
@@ -370,12 +375,12 @@ server_module_filtering_box <- function(id, assays_to_process, type, state) {
 #' @importFrom plotly plot_ly renderPlotly
 #'
 server_module_annotation_plot <- function(
-    id,
-    assays_to_process,
-    type,
-    filter_value,
-    selected_annotation,
-    filter_operator
+      id,
+      assays_to_process,
+      type,
+      filter_value,
+      selected_annotation,
+      filter_operator
 ) {
     moduleServer(id, function(input, output, session) {
         rowname_selector_key <- ".qfeaturesgui_rowname"
@@ -513,10 +518,10 @@ missingness_filter_plot_values <- function(values, operator) {
 }
 
 missingness_annotation_plot_wrapper <- function(
-    annotation,
-    filtered_annotation,
-    assay_name,
-    annotation_name
+      annotation,
+      filtered_annotation,
+      assay_name,
+      annotation_name
 ) {
     categories <- levels(annotation)
     annotation <- factor(annotation, levels = categories)
@@ -570,10 +575,10 @@ missingness_annotation_plot_wrapper <- function(
 #' @importFrom plotly plot_ly config %>% add_histogram layout add_annotations
 #'
 annotation_plot_wrapper <- function(
-    annotation,
-    filtered_annotation,
-    assay_name,
-    annotation_name
+      annotation,
+      filtered_annotation,
+      assay_name,
+      annotation_name
 ) {
     if (all(is.na(annotation))) {
         plot <- plot_ly(
