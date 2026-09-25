@@ -473,23 +473,6 @@ page_assays_subset <- function(qfeatures, pattern) {
 #'
 #' @importFrom shiny tags tagAppendAttributes
 #'
-#' @examples
-#' ## Plain text trigger with info icon
-#' bs3Tooltip(
-#'     trigger = "assayData",
-#'     tooltipText = paste0(
-#'         "A data.frame or any object that can be coerced into a data.frame, ",
-#'         "holding the quantitative assay."
-#'     )
-#' )
-#'
-#' ## Button trigger
-#' bs3Tooltip(
-#'     trigger = shiny::actionButton("btn", "Import"),
-#'     tooltipText = "Click to import the data",
-#'     placement = "top"
-#' )
-#'
 #' @rdname INTERNAL_bs3Tooltip
 #' @keywords internal
 #'

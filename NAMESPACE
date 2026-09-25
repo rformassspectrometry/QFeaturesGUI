@@ -2,6 +2,7 @@
 
 export(importQFeatures)
 export(processQFeatures)
+export(visualizeQFeatures)
 importFrom(DT,
   dataTableOutput,
   datatable,
@@ -14,7 +15,8 @@ importFrom(MsCoreUtils,
 importFrom(MultiAssayExperiment,
   ExperimentList,
   MultiAssayExperiment,
-  getWithColData
+  getWithColData,
+  longForm
 )
 importFrom(QFeatures,
   QFeatures,
@@ -48,8 +50,11 @@ importFrom(dplyr,mutate)
 importFrom(ggplot2,
   aes,
   annotate,
+  facet_grid,
   geom_boxplot,
   geom_histogram,
+  geom_line,
+  geom_point,
   geom_violin,
   geom_vline,
   ggplot,

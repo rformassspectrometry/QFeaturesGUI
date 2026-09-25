@@ -69,5 +69,10 @@ server_module_summary <- function(id, qfeatures, assay_labels = identity) {
             assays_to_process = qfeatures,
             assay_labels = assay_labels
         )
+        server_module_modality_plot(
+            id = "modality_plot",
+            assays_to_process = qfeatures,
+            assay_labels = assay_labels
+        )
     })
 }

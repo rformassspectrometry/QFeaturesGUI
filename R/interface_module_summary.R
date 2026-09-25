@@ -44,6 +44,14 @@ interface_module_summary <- function(id, ...) {
             collapsible = TRUE,
             interface_module_pca_box(NS(id, "summary_pca"))
         ),
+        box(
+            title = "Across modality intensities",
+            status = "primary",
+            width = 12,
+            solidHeader = TRUE,
+            collapsible = TRUE,
+            interface_module_modality_plot(NS(id, "modality_plot"))
+        ),
         ...
     )
 }
