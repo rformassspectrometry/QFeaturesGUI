@@ -44,7 +44,8 @@ workflows to a \linkS4class{QFeatures} object.
 The input \code{qfeatures} can be provided as an in-memory
 \linkS4class{QFeatures} object, as a path to an \code{.rds} file
 containing one, or omitted. If omitted, the application prompts the user
-to upload a \linkS4class{QFeatures} object from an \code{.rds} file.
+to upload a \linkS4class{QFeatures} object from an \code{.rds} file
+or use the bundled demo dataset.
 }
 \details{
 The application provides a drag-and-drop workflow builder that allows

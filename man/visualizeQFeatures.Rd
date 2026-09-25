@@ -7,18 +7,27 @@
 visualizeQFeatures(qfeatures = NULL, maxSize = 100)
 }
 \arguments{
+\item{qfeatures}{Optional \linkS4class{QFeatures} object to visualize,
+or a character string specifying the path to an \code{.rds} file
+containing one. If omitted or \code{NULL}, the app displays a startup
+modal for uploading a file or loading the bundled demo.}
+
 \item{maxSize}{An integer that changes the \code{shiny.maxRequestSize}
 value, in MB. This controls the maximum upload size for the startup
 \code{.rds} file upload modal.}
 }
+\value{
+The visualizeQFeatures Shiny application.
+}
 \description{
-\code{processQFeatures()} launches an interactive Shiny application
+\code{visualizeQFeatures()} launches an interactive Shiny application
 that allows users to visualize a \linkS4class{QFeatures} object.
 
 The input \code{qfeatures} can be provided as an in-memory
 \linkS4class{QFeatures} object, as a path to an \code{.rds} file
 containing one, or omitted. If omitted, the application prompts the user
-to upload a \linkS4class{QFeatures} object from an \code{.rds} file.
+to upload a \linkS4class{QFeatures} object from an \code{.rds} file
+or use the bundled demo dataset.
 }
 \examples{
 

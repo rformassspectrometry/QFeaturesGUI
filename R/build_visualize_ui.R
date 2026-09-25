@@ -16,6 +16,7 @@ build_visualize_ui <- function() {
         body = dashboardBody(
             useShinyjs(),
             waiter::useWaiter(),
+            shiny::uiOutput("startup_upload_ui"),
             interface_module_summary(id = "visualize")
         ),
         scrollToTop = TRUE
