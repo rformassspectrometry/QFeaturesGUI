@@ -13,11 +13,11 @@
 #' @importFrom htmltools tags
 #' @importFrom shinydashboard renderInfoBox infoBox
 server_module_filtering_tab <- function(
-    id,
-    step_number,
-    step_rv,
-    parent_rv,
-    type = c("samples", "features")
+      id,
+      step_number,
+      step_rv,
+      parent_rv,
+      type = c("samples", "features")
 ) {
     type <- match.arg(type)
 

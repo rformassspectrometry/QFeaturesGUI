@@ -8,7 +8,8 @@
 #' The input \code{qfeatures} can be provided as an in-memory
 #' \linkS4class{QFeatures} object, as a path to an \code{.rds} file
 #' containing one, or omitted. If omitted, the application prompts the user
-#' to upload a \linkS4class{QFeatures} object from an \code{.rds} file.
+#' to upload a \linkS4class{QFeatures} object from an \code{.rds} file
+#' or use the bundled demo dataset.
 #'
 #' @param qfeatures Optional \linkS4class{QFeatures} object to be processed,
 #'   or a character string specifying the path to a \code{.rds} file
@@ -54,19 +55,19 @@
 #'     shiny::runApp(app)
 #' }
 processQFeatures <- function(
-    qfeatures = NULL,
-    initialSets = NULL,
-    prefilledSteps = c(
-        "sampleFiltering",
-        "featureFiltering",
-        "missingValuesFeatures",
-        "missingValuesSamples",
-        "normalisation",
-        "aggregation",
-        "join",
-        "aggregation"
-    ),
-    maxSize = 100
+      qfeatures = NULL,
+      initialSets = NULL,
+      prefilledSteps = c(
+          "sampleFiltering",
+          "featureFiltering",
+          "missingValuesFeatures",
+          "missingValuesSamples",
+          "normalisation",
+          "aggregation",
+          "join",
+          "aggregation"
+      ),
+      maxSize = 100
 ) {
     qfeatures_missing <- missing(qfeatures) || is.null(qfeatures)
     initial_steps <- check_prefilled_steps(prefilledSteps)

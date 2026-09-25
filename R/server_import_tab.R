@@ -14,11 +14,11 @@
 #' @keywords internal
 #'
 server_import_tab <- function(
-    input,
-    output,
-    session,
-    sample_table,
-    input_table
+      input,
+      output,
+      session,
+      sample_table,
+      input_table
 ) {
     imported_input <- box_read_table_server(
         id = "input",
