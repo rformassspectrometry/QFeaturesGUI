@@ -180,89 +180,6 @@ normalise_initial_sets <- function(qfeatures, initialSets) {
     unique(idx)
 }
 
-#' Validate and load a QFeatures object
-#'
-#' Internal helper to validate the \code{qfeatures} argument. If a character
-#' path is provided, the function attempts to read an RDS file and validates
-#' that it contains a \linkS4class{QFeatures} object.
-#'
-#' @param qfeatures A \linkS4class{QFeatures} object or a character path to
-#'   an RDS file containing one.
-#'
-#' @return A validated \linkS4class{QFeatures} object.
-#'
-#' @keywords internal
-#' @noRd
-check_qfeatures <- function(qfeatures) {
-    if (missing(qfeatures)) {
-        stop("`qfeatures` argument is missing")
-    }
-
-    from_rds_file <- FALSE
-    if (is.character(qfeatures)) {
-        from_rds_file <- TRUE
-        if (length(qfeatures) != 1L) {
-            stop("`qfeatures` must be a single path to an RDS file.")
-        }
-        if (!file.exists(qfeatures)) {
-            stop("The file '", qfeatures, "' does not exist.")
-        }
-
-        qfeatures <- tryCatch(
-            readRDS(qfeatures),
-            error = function(e) {
-                stop("Failed to read RDS file: ", e$message)
-            }
-        )
-    }
-
-    if (!inherits(qfeatures, "QFeatures")) {
-        if (from_rds_file) {
-            stop("The RDS file does not contain a QFeatures object.")
-        }
-        stop(
-            "`qfeatures` must be a QFeatures object or a valid path to an RDS file containing one."
-        )
-    }
-
-    qfeatures
-}
-
-#' Build the bundled demo QFeatures object
-#'
-#' @return A \linkS4class{QFeatures} object built from the package
-#'   \code{inputTable} and \code{sampleTable} example datasets.
-#'
-#' @keywords internal
-#' @noRd
-demo_process_qfeatures <- function() {
-    data_env <- new.env(parent = emptyenv())
-    utils::data(
-        list = c("inputTable", "sampleTable"),
-        package = "QFeaturesGUI",
-        envir = data_env
-    )
-
-    if (!exists("inputTable", envir = data_env, inherits = FALSE) ||
-        !exists("sampleTable", envir = data_env, inherits = FALSE)) {
-        stop("Bundled demo data could not be loaded.")
-    }
-
-    qfeatures <- QFeatures::readQFeatures(
-        assayData = data_env$inputTable,
-        colData = data_env$sampleTable,
-        runCol = "Raw.file",
-        quantCols = NULL,
-        removeEmptyCols = TRUE,
-        verbose = FALSE
-    )
-    if (length(qfeatures) > 0) {
-        qfeatures <- QFeatures::zeroIsNA(qfeatures, i = seq_along(qfeatures))
-    }
-
-    qfeatures
-}
-
 #' Validate and map prefilled workflow steps
 #'
 #' Internal helper to validate workflow step identifiers and convert them
@@ -449,7 +366,7 @@ nipalsWrapper <- function(sce, center, scale, transpose = FALSE) {
     mat <- assay(sce)
     dimMat <- dim(mat)
     mat <- mat[rowSums(is.finite(mat)) > 2, colSums(is.finite(mat)) > 2]
-    if (!identical(dim(mat), dimMat)){
+    if (!identical(dim(mat), dimMat)) {
         warning("Some variable(s) with less than 3 observations were removed")
     }
 
@@ -531,12 +448,12 @@ pca_plotly <- function(df, pca_result, color_name, show_legend, x_component, y_c
         layout(
             xaxis = list(title = paste(
                 x_component,
-                round(pca_result$R2[as.integer(strsplit(x_component,"PC")[[1]][2])] * 100, 2),
+                round(pca_result$R2[as.integer(strsplit(x_component, "PC")[[1]][2])] * 100, 2),
                 "% of the variance"
             )),
             yaxis = list(title = paste(
                 y_component,
-                round(pca_result$R2[as.integer(strsplit(y_component,"PC")[[1]][2])] * 100, 2),
+                round(pca_result$R2[as.integer(strsplit(y_component, "PC")[[1]][2])] * 100, 2),
                 "% of the variance"
             )),
             showlegend = show_legend,
@@ -770,10 +687,11 @@ available_imputation_methods <- function() {
 assert_imputation_method_available <- function(method) {
     specs <- imputation_method_specs()
     if (!(method %in% names(specs))) {
-        stop("Unknown imputation method: ", method, 
+        stop("Unknown imputation method: ", method,
             ". Use one of the available methods: ",
             names(specs),
-            call. = FALSE)
+            call. = FALSE
+        )
     }
 
     required_package <- specs[[method]]$package
@@ -1357,8 +1275,10 @@ annotation_cols <- function(x, what) {
 #' @importFrom MsCoreUtils robustSummary medianPolish
 #' @importFrom waiter Waiter spin_fading_circles
 #'
-aggregation_qfeatures <- function(qfeatures, method,
-    fcol) {
+aggregation_qfeatures <- function(
+      qfeatures, method,
+      fcol
+) {
     n <- length(qfeatures)
     caption <- if (n > 0L) {
         paste0("Aggregation of 1/", n, " sets")

@@ -8,7 +8,8 @@
 #' The input \code{qfeatures} can be provided as an in-memory
 #' \linkS4class{QFeatures} object, as a path to an \code{.rds} file
 #' containing one, or omitted. If omitted, the application prompts the user
-#' to upload a \linkS4class{QFeatures} object from an \code{.rds} file.
+#' to upload a \linkS4class{QFeatures} object from an \code{.rds} file
+#' or use the bundled demo dataset.
 #'
 #' @param qfeatures Optional \linkS4class{QFeatures} object to be processed,
 #'   or a character string specifying the path to a \code{.rds} file
@@ -22,10 +23,19 @@
 #'   the initial sets after uploading the \code{.rds} file.
 #'
 #' @param prefilledSteps A character vector specifying the initial workflow
-#'   steps to display when the application launches. Steps must be provided
-#'   using their internal identifiers (e.g. \code{"sampleFiltering"},
-#'   \code{"featureFiltering"}, \code{"normalisation"}).
-#'
+#'   steps to display when the application launches. Available steps are:
+#'   \itemize{
+#'     \item \code{"sampleFiltering"}
+#'     \item \code{"featureFiltering"}
+#'     \item \code{"normalisation"}
+#'     \item \code{"zeroToNA"}
+#'     \item \code{"logTransform"}
+#'     \item \code{"imputation"}
+#'     \item \code{"missingValuesFeatures"}
+#'     \item \code{"missingValuesSamples"}
+#'     \item \code{"aggregation"}
+#'     \item \code{"join"}
+#'   }
 #' @param maxSize An integer that changes the \code{shiny.maxRequestSize}
 #'   value, in MB. This controls the maximum upload size for the startup
 #'   \code{.rds} file upload modal.
@@ -54,19 +64,19 @@
 #'     shiny::runApp(app)
 #' }
 processQFeatures <- function(
-    qfeatures = NULL,
-    initialSets = NULL,
-    prefilledSteps = c(
-        "sampleFiltering",
-        "featureFiltering",
-        "missingValuesFeatures",
-        "missingValuesSamples",
-        "normalisation",
-        "aggregation",
-        "join",
-        "aggregation"
-    ),
-    maxSize = 100
+      qfeatures = NULL,
+      initialSets = NULL,
+      prefilledSteps = c(
+          "sampleFiltering",
+          "featureFiltering",
+          "missingValuesFeatures",
+          "missingValuesSamples",
+          "normalisation",
+          "aggregation",
+          "join",
+          "aggregation"
+      ),
+      maxSize = 100
 ) {
     qfeatures_missing <- missing(qfeatures) || is.null(qfeatures)
     initial_steps <- check_prefilled_steps(prefilledSteps)

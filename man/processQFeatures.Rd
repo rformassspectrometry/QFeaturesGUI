@@ -25,9 +25,19 @@ processing. If \code{NULL} and \code{qfeatures} is provided, all assays in
 the initial sets after uploading the \code{.rds} file.}
 
 \item{prefilledSteps}{A character vector specifying the initial workflow
-steps to display when the application launches. Steps must be provided
-using their internal identifiers (e.g. \code{"sampleFiltering"},
-\code{"featureFiltering"}, \code{"normalisation"}).}
+steps to display when the application launches. Available steps are:
+\itemize{
+\item \code{"sampleFiltering"}
+\item \code{"featureFiltering"}
+\item \code{"normalisation"}
+\item \code{"zeroToNA"}
+\item \code{"logTransform"}
+\item \code{"imputation"}
+\item \code{"missingValuesFeatures"}
+\item \code{"missingValuesSamples"}
+\item \code{"aggregation"}
+\item \code{"join"}
+}}
 
 \item{maxSize}{An integer that changes the \code{shiny.maxRequestSize}
 value, in MB. This controls the maximum upload size for the startup
@@ -44,7 +54,8 @@ workflows to a \linkS4class{QFeatures} object.
 The input \code{qfeatures} can be provided as an in-memory
 \linkS4class{QFeatures} object, as a path to an \code{.rds} file
 containing one, or omitted. If omitted, the application prompts the user
-to upload a \linkS4class{QFeatures} object from an \code{.rds} file.
+to upload a \linkS4class{QFeatures} object from an \code{.rds} file
+or use the bundled demo dataset.
 }
 \details{
 The application provides a drag-and-drop workflow builder that allows

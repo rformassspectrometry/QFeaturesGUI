@@ -11,7 +11,7 @@
 #' @importFrom htmltools includeCSS
 #' @importFrom shinyFeedback useShinyFeedback
 #' @importFrom shinyalert useShinyalert
-#' @importFrom shiny icon
+#' @importFrom shiny icon downloadButton
 #' @importFrom waiter useWaiter
 #' @importFrom shinyjs useShinyjs
 build_process_ui <- function(initial_steps) {
@@ -49,7 +49,15 @@ build_process_ui <- function(initial_steps) {
                 ),
                 tabItem(
                     tabName = "summary_tab",
-                    interface_module_summary_tab("summary_tab")
+                    interface_module_summary(
+                        "summary_tab",
+                        downloadButton(
+                            outputId = "summary_tab-download_qfeatures",
+                            "Download QFeatures",
+                            class = "load-button",
+                            style = "width: 100%;"
+                        )
+                    )
                 ),
                 # Preconstructed workflow step tabs
                 tabItem(tabName = "step_1", uiOutput("dynamic_step_ui_1")),

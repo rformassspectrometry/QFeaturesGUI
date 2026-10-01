@@ -96,10 +96,8 @@ make_process_test_qfeatures <- function() {
     ))
 }
 
-add_expected_process_assays <- function(
-      qfeatures, processed_qfeatures,
-      step_number, type
-) {
+add_expected_process_assays <- function(qfeatures, processed_qfeatures,
+    step_number, type) {
     expected <- qfeatures
     for (assay_name in names(processed_qfeatures)) {
         expected[[paste0(assay_name, "_", type, "_", step_number)]] <-

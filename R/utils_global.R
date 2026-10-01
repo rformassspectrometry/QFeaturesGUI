@@ -78,10 +78,12 @@ error_handler <- function(func, component_name, ...) {
 #' @importFrom htmltools HTML div
 #'
 #' @rdname INTERNAL_show_exception_notification
-show_exception_notification <- function(component_name,
-    type = c("error", "warning"),
-    time,
-    duration = 30) {
+show_exception_notification <- function(
+      component_name,
+      type = c("error", "warning"),
+      time,
+      duration = 30
+) {
     type <- match.arg(type)
 
     title <- paste0(
@@ -203,10 +205,12 @@ loading <- function(msg) {
 #' @return A UI element wrapped with waiter behavior.
 #' @rdname INTERNAL_with_output_waiter
 #' @keywords internal
-with_output_waiter <- function(element,
-    html = waiter::spin_fading_circles(),
-    color = "rgba(0, 0, 0, 0.25)",
-    image = "") {
+with_output_waiter <- function(
+      element,
+      html = waiter::spin_fading_circles(),
+      color = "rgba(0, 0, 0, 0.25)",
+      image = ""
+) {
     output_id <- element$attribs$id
     if (is.null(output_id) && is.list(element) && length(element) > 0L) {
         first_child <- element[[1]]
@@ -385,12 +389,16 @@ with_task_loader <- function(caption = NULL, expr) {
 #' Will convert a qfeatures object to a summary data.frame object
 #'
 #' @param qfeatures a qfeatures object
+#' @param assay_labels A function taking assay names and returning display
+#'   labels of the same length. Defaults to [identity()].
 #'
 #' @return a data.frame object
 #' @rdname INTERNAL_qfeatures_to_df
 #' @keywords internal
 #'
-qfeatures_to_df <- function(qfeatures) {
+qfeatures_to_df <- function(qfeatures, assay_labels = identity) {
+    assay_names <- assay_labels(names(qfeatures))
+    stopifnot(length(assay_names) == length(qfeatures))
     df <- data.frame(
         "Name" = rep.int(0, length(qfeatures)),
         "Class" = rep.int(0, length(qfeatures)),
@@ -400,7 +408,7 @@ qfeatures_to_df <- function(qfeatures) {
         "nSamplesMetadata" = rep.int(0, length(qfeatures))
     )
     for (i in seq_along(qfeatures)) {
-        df[i, "Name"] <- remove_QFeaturesGUI(names(qfeatures)[[i]])
+        df[i, "Name"] <- assay_names[[i]]
         df[i, "Class"] <- class(qfeatures[[i]])[[1]]
         df[i, "nFeatures"] <- nrow(qfeatures[[i]])[[1]]
         df[i, "nSamples"] <- ncol(qfeatures[[i]])[[1]]
@@ -465,30 +473,15 @@ page_assays_subset <- function(qfeatures, pattern) {
 #'
 #' @importFrom shiny tags tagAppendAttributes
 #'
-#' @examples
-#' ## Plain text trigger with info icon
-#' bs3Tooltip(
-#'     trigger = "assayData",
-#'     tooltipText = paste0(
-#'         "A data.frame or any object that can be coerced into a data.frame, ",
-#'         "holding the quantitative assay."
-#'     )
-#' )
-#'
-#' ## Button trigger
-#' bs3Tooltip(
-#'     trigger = shiny::actionButton("btn", "Import"),
-#'     tooltipText = "Click to import the data",
-#'     placement = "top"
-#' )
-#'
 #' @rdname INTERNAL_bs3Tooltip
 #' @keywords internal
 #'
-bs3Tooltip <- function(trigger,
-    tooltipText,
-    placement = c("right", "left", "top", "bottom"),
-    icon = "fa-info-circle") {
+bs3Tooltip <- function(
+      trigger,
+      tooltipText,
+      placement = c("right", "left", "top", "bottom"),
+      icon = "fa-info-circle"
+) {
     stopifnot(
         is.character(tooltipText), length(tooltipText) == 1L,
         is.character(icon), length(icon) == 1L

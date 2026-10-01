@@ -76,10 +76,10 @@ code_generator_read_table <- function(id, arg_as_param, file = NULL, sep = NULL,
         )
     } else {
         if (id == "input") {
-            codeLines <- 
+            codeLines <-
                 "# Replace dataFrame1 with the value passed as assayData arg\n\ninput_table <- dataFrame1\n"
         } else {
-            codeLines <- 
+            codeLines <-
                 "# Replace dataFrame2 with the value passed as colData arg\n\nsample_table <- dataFrame2\n"
         }
     }

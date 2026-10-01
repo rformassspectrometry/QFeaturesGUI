@@ -24,7 +24,7 @@ test_that("qfeatures_to_df summarises dimensions and strips GUI suffixes", {
     qf <- make_test_qfeatures()
     names(qf) <- c("set1_(QFeaturesGUI#0)", "set2_(QFeaturesGUI#0)")
 
-    summary <- qfeatures_to_df(qf)
+    summary <- qfeatures_to_df(qf, assay_labels = remove_QFeaturesGUI)
 
     expect_equal(summary$Name, c("set1", "set2"))
     expect_equal(summary$nFeatures, c(4, 2))
