@@ -2,8 +2,11 @@
 
 ## QFeaturesGUI 0.99
 
-### QFeaturesGUI 0.99.3
+### QFeaturesGUI 0.99.4
 
+- Add
+  [`visualise()`](https://rformassspectrometry.github.io/QFeaturesGUI/reference/visualise.md)
+  app.
 - Rename the app launchers to
   [`import()`](https://rformassspectrometry.github.io/QFeaturesGUI/reference/import.md),
   [`process()`](https://rformassspectrometry.github.io/QFeaturesGUI/reference/process.md),
@@ -16,6 +19,9 @@
   [`visualizeQFeatures()`](https://rformassspectrometry.github.io/QFeaturesGUI/reference/QFeaturesGUI-deprecated.md)
   remain available as deprecated wrappers and warn with the replacement
   function name.
+- Changing license from MIT to GPL-3
+
+### QFeaturesGUI 0.99.3
 
 - Use default for argument `row.names` when using `read.table`.
 
