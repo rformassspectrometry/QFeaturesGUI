@@ -6,7 +6,7 @@
 
 ### Applications
 
-- [importQFeatures
+- [import
   App](https://rformassspectrometry.github.io/QFeaturesGUI/articles/importQFeatures.md):
-- [processQFeatures
+- [process
   App](https://rformassspectrometry.github.io/QFeaturesGUI/articles/processQFeatures.md):

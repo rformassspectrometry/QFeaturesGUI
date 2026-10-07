@@ -5,12 +5,12 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>processQFeatures App • QFeaturesGUI</title>
+<title>process App • QFeaturesGUI</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="processQFeatures App">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="process App">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -58,13 +58,13 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
 
-      <h1>processQFeatures App</h1>
+      <h1>process App</h1>
                         <h4 data-toc-skip class="author">Léopold
 Guyot</h4>
                                     <h4 data-toc-skip class="author">Loïc
 Guille</h4>
                         
-            <h4 data-toc-skip class="date">1 October 2026</h4>
+            <h4 data-toc-skip class="date">7 October 2026</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/rformassspectrometry/QFeaturesGUI/vignettes/processQFeatures.Rmd" class="external-link"><code>vignettes/processQFeatures.Rmd</code></a></small>
       <div class="d-none name"><code>processQFeatures.Rmd</code></div>
@@ -74,13 +74,12 @@ Guille</h4>
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rformassspectrometry.github.io/QFeaturesGUI/">QFeaturesGUI</a></span><span class="op">)</span></span></code></pre></div>
-<p>This app can be used once the data from
-<code><a href="../reference/importQFeatures.html">importQFeatures()</a></code> have been downloaded. In order to do
-that, unzip the folder downloaded, and load the RDS that contain the
-QFeatures object in your R environment or pass directly the path as an
-argument when using <code><a href="../reference/processQFeatures.html">processQFeatures()</a></code>. You can also
-directly start the application <code><a href="../reference/processQFeatures.html">processQFeatures()</a></code> and load
-the RDS into the application.</p>
+<p>This app can be used once the data from <code><a href="../reference/import.html">import()</a></code> have
+been downloaded. In order to do that, unzip the folder downloaded, and
+load the RDS that contain the QFeatures object in your R environment or
+pass directly the path as an argument when using <code><a href="../reference/process.html">process()</a></code>.
+You can also directly start the application <code><a href="../reference/process.html">process()</a></code> and
+load the RDS into the application.</p>
 <div class="section level2">
 <h2 id="start-the-app">Start the app<a class="anchor" aria-label="anchor" href="#start-the-app"></a>
 </h2>

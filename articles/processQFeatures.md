@@ -1,4 +1,4 @@
-# processQFeatures App
+# process App
 
 ``` r
 
@@ -6,13 +6,13 @@ library(QFeaturesGUI)
 ```
 
 This app can be used once the data from
-[`importQFeatures()`](https://rformassspectrometry.github.io/QFeaturesGUI/reference/importQFeatures.md)
+[`import()`](https://rformassspectrometry.github.io/QFeaturesGUI/reference/import.md)
 have been downloaded. In order to do that, unzip the folder downloaded,
 and load the RDS that contain the QFeatures object in your R environment
 or pass directly the path as an argument when using
-[`processQFeatures()`](https://rformassspectrometry.github.io/QFeaturesGUI/reference/processQFeatures.md).
+[`process()`](https://rformassspectrometry.github.io/QFeaturesGUI/reference/process.md).
 You can also directly start the application
-[`processQFeatures()`](https://rformassspectrometry.github.io/QFeaturesGUI/reference/processQFeatures.md)
+[`process()`](https://rformassspectrometry.github.io/QFeaturesGUI/reference/process.md)
 and load the RDS into the application.
 
 ## Start the app

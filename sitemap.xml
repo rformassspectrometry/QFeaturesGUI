@@ -1,6 +1,5 @@
 <urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
 <url><loc>https://rformassspectrometry.github.io/QFeaturesGUI/404.html</loc></url>
-<url><loc>https://rformassspectrometry.github.io/QFeaturesGUI/LICENSE-text.html</loc></url>
 <url><loc>https://rformassspectrometry.github.io/QFeaturesGUI/LICENSE.html</loc></url>
 <url><loc>https://rformassspectrometry.github.io/QFeaturesGUI/articles/QFeaturesGUI.html</loc></url>
 <url><loc>https://rformassspectrometry.github.io/QFeaturesGUI/articles/importQFeatures.html</loc></url>
@@ -9,10 +8,12 @@
 <url><loc>https://rformassspectrometry.github.io/QFeaturesGUI/authors.html</loc></url>
 <url><loc>https://rformassspectrometry.github.io/QFeaturesGUI/index.html</loc></url>
 <url><loc>https://rformassspectrometry.github.io/QFeaturesGUI/news/index.html</loc></url>
-<url><loc>https://rformassspectrometry.github.io/QFeaturesGUI/reference/importQFeatures.html</loc></url>
+<url><loc>https://rformassspectrometry.github.io/QFeaturesGUI/reference/QFeaturesGUI-deprecated.html</loc></url>
+<url><loc>https://rformassspectrometry.github.io/QFeaturesGUI/reference/import.html</loc></url>
 <url><loc>https://rformassspectrometry.github.io/QFeaturesGUI/reference/index.html</loc></url>
 <url><loc>https://rformassspectrometry.github.io/QFeaturesGUI/reference/inputTable.html</loc></url>
-<url><loc>https://rformassspectrometry.github.io/QFeaturesGUI/reference/processQFeatures.html</loc></url>
+<url><loc>https://rformassspectrometry.github.io/QFeaturesGUI/reference/process.html</loc></url>
 <url><loc>https://rformassspectrometry.github.io/QFeaturesGUI/reference/sampleTable.html</loc></url>
+<url><loc>https://rformassspectrometry.github.io/QFeaturesGUI/reference/visualise.html</loc></url>
 </urlset>
 

@@ -2,10 +2,19 @@
 
 ## Application launchers
 
-- [`importQFeatures()`](https://rformassspectrometry.github.io/QFeaturesGUI/reference/importQFeatures.md)
+- [`import()`](https://rformassspectrometry.github.io/QFeaturesGUI/reference/import.md)
   : A shiny app to import QFeatures objects.
-- [`processQFeatures()`](https://rformassspectrometry.github.io/QFeaturesGUI/reference/processQFeatures.md)
+- [`process()`](https://rformassspectrometry.github.io/QFeaturesGUI/reference/process.md)
   : Launch a Shiny application to process QFeatures objects
+- [`visualise()`](https://rformassspectrometry.github.io/QFeaturesGUI/reference/visualise.md)
+  : Launch a Shiny application to visualise QFeatures objects
+
+## Deprecated functions
+
+- [`importQFeatures()`](https://rformassspectrometry.github.io/QFeaturesGUI/reference/QFeaturesGUI-deprecated.md)
+  [`processQFeatures()`](https://rformassspectrometry.github.io/QFeaturesGUI/reference/QFeaturesGUI-deprecated.md)
+  [`visualizeQFeatures()`](https://rformassspectrometry.github.io/QFeaturesGUI/reference/QFeaturesGUI-deprecated.md)
+  : Deprecated functions in QFeaturesGUI
 
 ## Data
 

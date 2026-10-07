@@ -119,7 +119,7 @@ For example, the application dedicated to importing data into a
 
 ``` r
 
-app <- importQFeatures()
+app <- import()
 
 if (interactive()) {
     shiny::runApp(app)
@@ -131,7 +131,7 @@ using:
 
 ``` r
 
-app <- processQFeatures(qfeaturesObject)
+app <- process(qfeaturesObject)
 
 if (interactive()) {
     shiny::runApp(app)
@@ -147,12 +147,12 @@ focused graphical interface.
 
 The use of each application is described in a corresponding vignette:
 
-- **Data import**: `importQFeatures`  
-  See the [importQFeatures
+- **Data import**: `import`  
+  See the [import
   vignette](https://rformassspectrometry.github.io/QFeaturesGUI/articles/importQFeatures.md)
 
-- **Data processing**: `processQFeatures`  
-  See the [processQFeatures
+- **Data processing**: `process`  
+  See the [process
   vignette](https://rformassspectrometry.github.io/QFeaturesGUI/articles/processQFeatures.md)
 
 Additional applications will be introduced in future releases and

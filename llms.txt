@@ -29,11 +29,14 @@ workflow.
 
 Currently available applications include:
 
-- **Data import** (`importQFeatures`)  
+- **Data import** (`import`)  
   Import quantitative proteomics data into `QFeatures` objects
 
-- **Data processing** (`processQFeatures`)  
+- **Data processing** (`process`)  
   Perform common data processing steps on `QFeatures` and `scp` objects
+
+- **Data visualisation** (`visualise`)  
+  Explore and visualise `QFeatures` objects
 
 Additional applications will be added in future releases.
 
@@ -108,10 +111,19 @@ versions.
 
 ## Application launchers
 
-- [`importQFeatures()`](https://rformassspectrometry.github.io/QFeaturesGUI/reference/importQFeatures.md)
+- [`import()`](https://rformassspectrometry.github.io/QFeaturesGUI/reference/import.md)
   : A shiny app to import QFeatures objects.
-- [`processQFeatures()`](https://rformassspectrometry.github.io/QFeaturesGUI/reference/processQFeatures.md)
+- [`process()`](https://rformassspectrometry.github.io/QFeaturesGUI/reference/process.md)
   : Launch a Shiny application to process QFeatures objects
+- [`visualise()`](https://rformassspectrometry.github.io/QFeaturesGUI/reference/visualise.md)
+  : Launch a Shiny application to visualise QFeatures objects
+
+## Deprecated functions
+
+- [`importQFeatures()`](https://rformassspectrometry.github.io/QFeaturesGUI/reference/QFeaturesGUI-deprecated.md)
+  [`processQFeatures()`](https://rformassspectrometry.github.io/QFeaturesGUI/reference/QFeaturesGUI-deprecated.md)
+  [`visualizeQFeatures()`](https://rformassspectrometry.github.io/QFeaturesGUI/reference/QFeaturesGUI-deprecated.md)
+  : Deprecated functions in QFeaturesGUI
 
 ## Data
 
@@ -128,7 +140,7 @@ versions.
 
 ### Applications
 
-- [importQFeatures
+- [import
   App](https://rformassspectrometry.github.io/QFeaturesGUI/articles/importQFeatures.md):
-- [processQFeatures
+- [process
   App](https://rformassspectrometry.github.io/QFeaturesGUI/articles/processQFeatures.md):

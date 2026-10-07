@@ -64,7 +64,7 @@ Guyot</h4>
                                     <h4 data-toc-skip class="author">Loïc
 Guille</h4>
                         
-            <h4 data-toc-skip class="date">1 October 2026</h4>
+            <h4 data-toc-skip class="date">7 October 2026</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/rformassspectrometry/QFeaturesGUI/vignettes/QFeaturesGUI.Rmd" class="external-link"><code>vignettes/QFeaturesGUI.Rmd</code></a></small>
       <div class="d-none name"><code>QFeaturesGUI.Rmd</code></div>
@@ -186,7 +186,7 @@ to be performed.</p>
 <p>For example, the application dedicated to importing data into a
 <code>QFeatures</code> object can be launched as follows:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">app</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/importQFeatures.html">importQFeatures</a></span><span class="op">(</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">app</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/import.html">import</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
 <span>    <span class="fu">shiny</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/runApp.html" class="external-link">runApp</a></span><span class="op">(</span><span class="va">app</span><span class="op">)</span></span>
@@ -194,7 +194,7 @@ to be performed.</p>
 <p>Similarly, the application dedicated to data processing can be
 launched using:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">app</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/processQFeatures.html">processQFeatures</a></span><span class="op">(</span><span class="va">qfeaturesObject</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">app</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/process.html">process</a></span><span class="op">(</span><span class="va">qfeaturesObject</span><span class="op">)</span></span>
 <span></span>
 <span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
 <span>    <span class="fu">shiny</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/runApp.html" class="external-link">runApp</a></span><span class="op">(</span><span class="va">app</span><span class="op">)</span></span>
@@ -211,13 +211,10 @@ focused graphical interface.</p>
 <p>The use of each application is described in a corresponding
 vignette:</p>
 <ul>
-<li><p><strong>Data import</strong>: <code>importQFeatures</code><br>
-See the <a href="importQFeatures.html">importQFeatures
-vignette</a></p></li>
-<li><p><strong>Data processing</strong>:
-<code>processQFeatures</code><br>
-See the <a href="processQFeatures.html">processQFeatures
-vignette</a></p></li>
+<li><p><strong>Data import</strong>: <code>import</code><br>
+See the <a href="importQFeatures.html">import vignette</a></p></li>
+<li><p><strong>Data processing</strong>: <code>process</code><br>
+See the <a href="processQFeatures.html">process vignette</a></p></li>
 </ul>
 <p>Additional applications will be introduced in future releases and
 documented in their own vignettes.</p>
