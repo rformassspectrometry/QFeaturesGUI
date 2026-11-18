@@ -1,5 +1,8 @@
 # QFeaturesGUI 0.99
 
+## QFeaturesGUI 0.99.5
+
+- Fix issue 117
 
 ## QFeaturesGUI 0.99.4
 

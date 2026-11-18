@@ -31,6 +31,7 @@ box_readqfeatures_server <- function(id, input_table, sample_table) {
             }
         })
         observeEvent(input$convert, {
+            req(qfeatures())
             shinyjs::show("qfeatures_preview_box")
             shinyjs::show("download_qfeatures_object")
         })
@@ -61,6 +62,7 @@ box_readqfeatures_server <- function(id, input_table, sample_table) {
                         removeEmptyCols = input$removeEmptyCols,
                         verbose = FALSE
                     )
+                    req(qfeatures)
                     if (input$zero_as_NA && length(qfeatures) > 0) {
                         qfeatures <- error_handler(
                             QFeatures::zeroIsNA,
@@ -68,6 +70,7 @@ box_readqfeatures_server <- function(id, input_table, sample_table) {
                             object = qfeatures,
                             i = seq_along(qfeatures)
                         )
+                        req(qfeatures)
                     }
                     if (input$logTransform) {
                         qfeatures <- error_handler(
@@ -77,6 +80,7 @@ box_readqfeatures_server <- function(id, input_table, sample_table) {
                             i = seq_along(qfeatures),
                             base = 2
                         )
+                        req(qfeatures)
                     }
                     if (input$singlecell) {
                         qfeatures <- setQFeaturesType(qfeatures, type = "scp")
@@ -148,6 +152,7 @@ box_readqfeatures_server <- function(id, input_table, sample_table) {
             }
         })
         observeEvent(input$convert, {
+            req(qfeatures())
             global_rv$code_lines$create_qfeatures <- code_generator_read_qfeatures(
                 input_table,
                 sample_table,
