@@ -1,6 +1,6 @@
 Package: QFeaturesGUI
 Title: A suite of shiny apps to use the main functionalities of the QFeatures package
-Version: 0.99.4
+Version: 0.99.5
 Authors@R: 
     c(person(given = "Léopold", family = "Guyot", email = "leopold.guyot@uclouvain.be", comment = c(ORCID = "0009-0005-2217-3855"), role = c("aut", "cre")),
     person(given =  "Loïc", family = "Guille", email = "loic.guille@uclouvain.be", comment = c(ORCID = "0000-0002-8387-1092"), role = c("aut")),
